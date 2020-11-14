@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 
-module.exports = async (data) => {
+module.exports = (data) => {
   console.log(data);
-  await fetch(process.env.SLACK_WEBHOOK, { 
+  return fetch(process.env.SLACK_WEBHOOK, { 
     method: 'POST', 
     body: JSON.stringify(data),
     headers: { 'Content-Type': 'application/json' }

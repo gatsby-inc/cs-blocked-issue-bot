@@ -2,7 +2,8 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 const getTicketsByTag = async labelId => {
-  return await fetch(`https://api.clubhouse.io/api/v3/stories/search`, {
+  console.log(labelId)
+  return fetch(`https://api.clubhouse.io/api/v3/stories/search`, {
     method: 'post',
     body: JSON.stringify({
       archived: false,
@@ -15,15 +16,18 @@ const getTicketsByTag = async labelId => {
     }
   }).catch(x => console.error(x.body))
   .then(res => res.json())
-  .then(data => data);  
+  .then(data => console.log("data", data));  
 }
 
-module.exports = async () => {
+const getTicketCount = async () => {
+  console.log("Firing up.")
   let p0bugs = await getTicketsByTag(15201);
   let p1bugs = await getTicketsByTag(15200);
   let p2bugs = await getTicketsByTag(15199);
   let p3bugs = await getTicketsByTag(15198);
   
+  console.log(p0bugs)
+
   return await {
     "blocks": [
       {
@@ -36,3 +40,5 @@ module.exports = async () => {
     ]
   }
 }
+
+module.exports = getTicketCount;
