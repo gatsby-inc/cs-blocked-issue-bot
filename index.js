@@ -1,9 +1,7 @@
-import post from './post.js';
-import tickets from './tickets.js';
-import dotenv from 'dotenv';
-dotenv.config();
+const post = require('./post.js');
+const tickets = require('./tickets.js');
 
-export default (req, res) => {
+module.exports = (req, res) => {
   tickets()
     .then(data => post(data, res))
     .then(res.send("Sent"));

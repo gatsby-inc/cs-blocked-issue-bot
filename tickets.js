@@ -1,6 +1,5 @@
-import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-dotenv.config();
+const fetch = require('node-fetch');
+require('dotenv').config();
 
 const getTicketsByTag = async labelId => {
   return await fetch(`https://api.clubhouse.io/api/v3/stories/search`, {
@@ -19,7 +18,7 @@ const getTicketsByTag = async labelId => {
   .then(data => data);  
 }
 
-export default async () => {
+module.exports = async () => {
   let p0bugs = await getTicketsByTag(15201);
   let p1bugs = await getTicketsByTag(15200);
   let p2bugs = await getTicketsByTag(15199);
