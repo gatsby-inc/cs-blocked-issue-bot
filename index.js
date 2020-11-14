@@ -3,7 +3,11 @@ import tickets from './tickets.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
-tickets().then(data => post(data));
+export default (req, res) => {
+  tickets()
+    .then(data => post(data, res))
+    .then(res.send("Sent"));
+}
 
 
 

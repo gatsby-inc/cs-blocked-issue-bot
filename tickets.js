@@ -31,13 +31,6 @@ export default async () => {
     		"type": "section",
     		"text": {
     			"type": "mrkdwn",
-    			"text": `:rolled_up_newspaper: *Morning CS Ticket Count*:`
-    		}
-      },
-      {
-    		"type": "section",
-    		"text": {
-    			"type": "mrkdwn",
     			"text": `• \`${p0bugs.length}\` P0 bugs open\n• \`${p1bugs.length}\` P1 bugs open\n• \`${p2bugs.length}\` P2 bugs open\n• \`${p3bugs.length}\` P3 bugs open`
     		}
       },
