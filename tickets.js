@@ -16,7 +16,7 @@ const getTicketsByTag = async labelId => {
     }
   }).catch(x => console.error(x.body))
   .then(res => res.json())
-  .then(data => console.log("data", data));  
+  .then(data => data);  
 }
 
 const getTicketCount = async () => {
