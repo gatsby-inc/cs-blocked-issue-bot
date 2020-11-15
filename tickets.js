@@ -26,7 +26,7 @@ const getTicketCount = async () => {
   let p2bugs = await getTicketsByTag(15199);
   let p3bugs = await getTicketsByTag(15198);
   
-  console.log(p0bugs)
+  console.log(p0bugs, p1bugs, p2bugs, p3bugs);
 
   return await {
     "blocks": [
